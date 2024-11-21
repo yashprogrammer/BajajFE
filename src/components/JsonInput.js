@@ -11,10 +11,13 @@ const JsonInput = ({ setResponse }) => {
       const parsedInput = JSON.parse(jsonInput);
 
       // Send to backend
-      const response = await axios.post("http://localhost:3000/bfhl", {
-        data: parsedInput.data,
-        file_b64: parsedInput.file_b64 || null,
-      });
+      const response = await axios.post(
+        "https://bajajbe-i7h7.onrender.com/bfhl",
+        {
+          data: parsedInput.data,
+          file_b64: parsedInput.file_b64 || null,
+        }
+      );
 
       setResponse(response.data);
       setError("");
